@@ -52,7 +52,6 @@ So ultimately, the responsibility of the Ad Server is to serve Ads to the user. 
 }
  </pre>
 
-
 ### Feedback Handler
 The Feedback Handler is responsible for submitting user feedback. It will enrich the data before publishing it to the Kafka queue. We created a new Kafka topic for this purpose having **one partition** and a **replication factor of 1**.
 The client application shares only the user interaction data in the feedback. The same needs to be combined with other attributes of the auction and the Ad campaign to make it efficient for consumption in billing and reports. When the client application sends the user feedback to the feedback handler through the feedback API, it will retrieve the extra attributes from MySQL to enrich the feedback data. The user feedback API will have the original Ad request identifier as an argument and that will be used for fetching the additional attributes.
@@ -76,23 +75,19 @@ Once an Ad has been displayed, information on whether the user has clicked on th
  </pre>
 
 **Sample API Response:-**
-
 <pre>
  {
     “status”:” SUCCESS”
  }
  </pre>
 
-
 ### Slot Budget Manager
 The purpose of the Slot BudgetMmanager is to distribute the leftover budget uniformly on the Ad slots and utilise the budget fully. As it needs to be working repeatedly and adjusting the Budget in a timely manner, so we scheduled it as a **Cron job** running every 10 minutes and the Python MySQL connector is used to write the code.
 
 **Sample Cron Job:-**
-
 <pre>
 */10 * * * * /path/to/file/slot_budget_manager.py <database_host> <database_name> <database_username> <database_password>
 </pre>
-
  
 ### User Feedback Writer
 The User Feedback Writer will read the user feedback messages from the internal Kafka queue(created in Feedback Handler module) and write the feedback data to HDFS(Hadoop Distributed File System) for archiving and billing purposes. This will be a **PySpark** consumer job.
@@ -101,11 +96,9 @@ The User Feedback Writer will read the user feedback messages from the internal 
 Data Archiver is responsible for exporting Ads data from MySQL to Hive, for reporting & billing purposes. So we used Apache Sqoop command to import the data from MySQL to Hive, and it can be scheduled as a **CRON job** to import data in batch of durations(let's say every 10 mins).
 
 **Sample Sqoop command:-**
-
 <pre>
-sqoop import --connect jdbc:mysql://<MySQL_DB_Host>:3306/<mysql_db_name> --username <mysql_username> -P --table <mysql_table_name> --hive-import --create-hive-table --hive-database '<hive_db_name>' --hive-table '<hive_table_name_to_be_created>' -m 1
+sqoop import --connect jdbc:mysql://<MySQL_DB_Host>:3306/mysql_db_name --username mysql_username -P --table mysql_table_name --hive-import --create-hive-table --hive-database 'hive_db_name' --hive-table 'hive_table_name_to_be_created' -m 1
 </pre>
-
  
 ### Report Generator
 HUE is used as a Report Generator, which is a User interface for the data stored in Hive.
