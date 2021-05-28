@@ -30,7 +30,6 @@ From Campaign Manager interface we are receiving data from Kafka Queue in JSON f
 
 ### Ad Manager
 In the Ad Manager, we used **PyKafka** consumer for reading the data from **Kafka** and **Python MySQL connector** for connecting & storing the data in MySQL.
-**_Code is attached_**
 
 ### Ad Server
 The Ad Server is responsible for serving the ads to the users. When a user is active online, the client application will send a request to the Ad server along with the user details. The request from a typical mobile app client will contain a Google Play Store ID (GPID) or an Apple ID along with locality details. Upon receiving the request, the Ad server will execute the following events:
@@ -39,11 +38,13 @@ The Ad Server is responsible for serving the ads to the users. When a user is ac
 So ultimately, the responsibility of the Ad Server is to serve Ads to the user. This will be done through an API call. We used the Flask library to create a web server and serve APIs in Python.
 
 **API Format:- **
+
 <code>**HTTP Method: GET **
  http://localhost:5000/ad/user/6abc435e-0f72-11eb-8a4e-acde48001122/serve?device_type=android-mobile&city=mumbai&state=maharastra
 </code>
 
 **Sample API Response:-**
+
 <code>
  {
          "text": "Jack Wolfskin Men's Rock Hunter Low Water
@@ -60,12 +61,14 @@ Here, we used Flask for the APIs and MySQL connector library to connect to MySQL
 Once an Ad has been displayed, information on whether the user has clicked on the Ad, downloaded the advertised App or only viewed the Ad needs to be sent back to the Ad server through the user feedback API. The Feedback Handler will enrich the feedback data and publish it to the internal Kafka topic.
 
 **API Format:-**
+
 <code>
  HTTP Method: POST
  http://localhost:8000/ad/17001d26-0f72-11eb-8a4e-acde48001122/feedback
 </code>
 
 **Sample Request Body:-**
+
 <code>
  {
      “View”:1,
@@ -75,6 +78,7 @@ Once an Ad has been displayed, information on whether the user has clicked on th
  </code>
 
 **Sample API Response:-**
+
 <code>
  {
     “status”:” SUCCESS”
