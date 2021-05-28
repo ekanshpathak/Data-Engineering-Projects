@@ -26,6 +26,6 @@ Transformation takes care of processing the data, identifying and removing anoma
 ### L (Loading)
 Loading takes care of storing the data to the Storage either Data Mart, Data Warehouse, etc. which will later be utilized by multiple teams as per their requirement.
 
-Further References to study about Data Engineering and Skilles required:
+Further References to study about Data Engineering and Skills required:
 1. https://realpython.com/python-data-engineer/
 2. https://github.com/datastacktv/data-engineer-roadmap
