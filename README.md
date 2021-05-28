@@ -2,6 +2,7 @@
 Group repo of Data Engineering Projects
 
 ![DataEngineering](https://user-images.githubusercontent.com/19205616/119996332-45d97b80-bfec-11eb-9b8d-0d436de45b0a.jpg)
+
 *Credit @RealPython*
 
 **Data Engineering is a field of Data Science having ultimate goal to provide Organized & Consistent Data flow to enable data-driven decisions.**
@@ -26,5 +27,5 @@ Transformation takes care of processing the data, identifying and removing anoma
 Loading takes care of storing the data to the Storage either Data Mart, Data Warehouse, etc. which will later be utilized by multiple teams as per their requirement.
 
 Further References to study about Data Engineering and Skilles required:
-1. (https://realpython.com/python-data-engineer/)
-2. (https://github.com/datastacktv/data-engineer-roadmap)
+1. https://realpython.com/python-data-engineer/
+2. https://github.com/datastacktv/data-engineer-roadmap
