@@ -105,14 +105,14 @@ HUE is used as a Report Generator, which is a User interface for the data stored
 
 ## Technologies Used
 
-![[python](https://user-images.githubusercontent.com/19205616/120016258-fdc55380-c001-11eb-81aa-bc0844797774.jpg)](https://www.python.org/)
-![[flask](https://user-images.githubusercontent.com/19205616/120016293-0e75c980-c002-11eb-9994-cf6994bbc881.jpg)](https://flask.palletsprojects.com/en/2.0.x/)
-![[kafka](https://user-images.githubusercontent.com/19205616/120016312-13d31400-c002-11eb-80cb-0f0ed694e36e.jpg)](https://kafka.apache.org/)
-![[hdfs](https://user-images.githubusercontent.com/19205616/120016328-1897c800-c002-11eb-9f80-165c956f994c.jpg)](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html)
-![[hive](https://user-images.githubusercontent.com/19205616/120016347-1c2b4f00-c002-11eb-9fa6-d8e58d621af1.jpg)](https://hive.apache.org/)
-![[hue](https://user-images.githubusercontent.com/19205616/120016352-1e8da900-c002-11eb-89ac-7f60975eec86.jpg)](https://gethue.com/)
-![[mysql](https://user-images.githubusercontent.com/19205616/120016359-20f00300-c002-11eb-8d4d-c5da216dc5c8.jpg)](https://www.mysql.com/)
-![[spark](https://user-images.githubusercontent.com/19205616/120016456-4250ef00-c002-11eb-8b6e-373569a503b5.png)](https://spark.apache.org/)
+[![python](https://user-images.githubusercontent.com/19205616/120016258-fdc55380-c001-11eb-81aa-bc0844797774.jpg)](https://www.python.org/)
+[![flask](https://user-images.githubusercontent.com/19205616/120016293-0e75c980-c002-11eb-9994-cf6994bbc881.jpg)](https://flask.palletsprojects.com/en/2.0.x/)
+[![kafka](https://user-images.githubusercontent.com/19205616/120016312-13d31400-c002-11eb-80cb-0f0ed694e36e.jpg)](https://kafka.apache.org/)
+[![hdfs](https://user-images.githubusercontent.com/19205616/120016328-1897c800-c002-11eb-9f80-165c956f994c.jpg)](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html)
+[![hive](https://user-images.githubusercontent.com/19205616/120016347-1c2b4f00-c002-11eb-9fa6-d8e58d621af1.jpg)](https://hive.apache.org/)
+[![hue](https://user-images.githubusercontent.com/19205616/120016352-1e8da900-c002-11eb-89ac-7f60975eec86.jpg)](https://gethue.com/)
+[![mysql](https://user-images.githubusercontent.com/19205616/120016359-20f00300-c002-11eb-8d4d-c5da216dc5c8.jpg)](https://www.mysql.com/)
+[![spark](https://user-images.githubusercontent.com/19205616/120016456-4250ef00-c002-11eb-8b6e-373569a503b5.png)](https://spark.apache.org/)
 
 ## Datasets used in the Project
 1. [Amazon Advertisements](https://www.kaggle.com/sachsene/amazons-advertisements): This data set contains data pertaining to the advertisement from Amazon (stand by the end of 2019)
