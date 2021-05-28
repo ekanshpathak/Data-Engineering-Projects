@@ -1,5 +1,4 @@
 # Data-Engineering-Projects
-Group repo of Data Engineering Projects
 
 ![DataEngineering](https://user-images.githubusercontent.com/19205616/119996332-45d97b80-bfec-11eb-9b8d-0d436de45b0a.jpg)
 
