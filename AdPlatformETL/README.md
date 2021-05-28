@@ -23,6 +23,7 @@ We have categorized the Project in multiple modules and coded the modules as per
  - [User Feedback Writer](#User-Feedback-Writer)
  - [Data Archiver](#Data-Archiver)
  - [Report Generator](#Report-Generator)
+ - [User Simulator](#User-Simulator)
 
 ### Campaign Manager
 From Campaign Manager interface we are receiving data from Kafka Queue in JSON format as below,
@@ -102,6 +103,9 @@ sqoop import --connect jdbc:mysql://<MySQL_DB_Host>:3306/mysql_db_name --usernam
  
 ### Report Generator
 HUE is used as a Report Generator, which is a User interface for the data stored in Hive.
+
+### User Simulator
+Written one User Simulator script, which will simulate the user behaviour in the client application. This script will hit the APIs hosted in the Ad Server in a manner similar to the user. First, it will hit the Ad Server API for getting Ads and then, it will hit the Feedback API with the request identifier received in the earlier API call. It will query in MySQL to get the list of available users.
 
 ## Technologies Used
 
