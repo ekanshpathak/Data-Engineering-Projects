@@ -85,6 +85,7 @@ Once an Ad has been displayed, information on whether the user has clicked on th
 The purpose of the Slot BudgetMmanager is to distribute the leftover budget uniformly on the Ad slots and utilise the budget fully. As it needs to be working repeatedly and adjusting the Budget in a timely manner, so we scheduled it as a **Cron job** running every 10 minutes and the Python MySQL connector is used to write the code.
 
 **Sample Cron Job:-**
+
 <code>
 */10 * * * * /path/to/file/slot_budget_manager.py <database_host> <database_name> <database_username> <database_password>
 </code>
@@ -96,6 +97,7 @@ The User Feedback Writer will read the user feedback messages from the internal 
 Data Archiver is responsible for exporting Ads data from MySQL to Hive, for reporting & billing purposes. So we used Apache Sqoop command to import the data from MySQL to Hive, and it can be scheduled as a **CRON job** to import data in batch of durations(let's say every 10 mins).
 
 **Sample Sqoop command:-**
+
 <code>
 sqoop import --connect jdbc:mysql://<MySQL_DB_Host>:3306/<mysql_db_name> --username <mysql_username> -P --table <mysql_table_name> --hive-import --create-hive-table --hive-database '<hive_db_name>' --hive-table '<hive_table_name_to_be_created>' -m 1
 </code>
