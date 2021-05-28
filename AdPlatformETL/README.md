@@ -44,13 +44,13 @@ So ultimately, the responsibility of the Ad Server is to serve Ads to the user. 
 </pre>
 
 **Sample API Response:-**
-<code>
+<pre>
  {
          "text": "Jack Wolfskin Men's Rock Hunter Low Water
          Resistant Hiking Shoe",
          "request_id":"17001d26-0f72-11eb-8a4e-acde48001122"
 }
- </code>
+ </pre>
 
 
 ### Feedback Handler
@@ -61,38 +61,37 @@ Here, we used Flask for the APIs and MySQL connector library to connect to MySQL
 Once an Ad has been displayed, information on whether the user has clicked on the Ad, downloaded the advertised App or only viewed the Ad needs to be sent back to the Ad server through the user feedback API. The Feedback Handler will enrich the feedback data and publish it to the internal Kafka topic.
 
 **API Format:-**
-<code>
+<pre>
  HTTP Method: POST <br>
  http://localhost:8000/ad/17001d26-0f72-11eb-8a4e-acde48001122/feedback
-</code>
+</pre>
 
 **Sample Request Body:-**
-
-<code>
+<pre>
  {
      “View”:1,
      “Click”:1,
      “Acquisition”:0
  }
- </code>
+ </pre>
 
 **Sample API Response:-**
 
-<code>
+<pre>
  {
     “status”:” SUCCESS”
  }
- </code>
-<br>
+ </pre>
+
 
 ### Slot Budget Manager
 The purpose of the Slot BudgetMmanager is to distribute the leftover budget uniformly on the Ad slots and utilise the budget fully. As it needs to be working repeatedly and adjusting the Budget in a timely manner, so we scheduled it as a **Cron job** running every 10 minutes and the Python MySQL connector is used to write the code.
 
 **Sample Cron Job:-**
 
-<code>
+<pre>
 */10 * * * * /path/to/file/slot_budget_manager.py <database_host> <database_name> <database_username> <database_password>
-</code>
+</pre>
 
  
 ### User Feedback Writer
@@ -103,9 +102,9 @@ Data Archiver is responsible for exporting Ads data from MySQL to Hive, for repo
 
 **Sample Sqoop command:-**
 
-<code>
+<pre>
 sqoop import --connect jdbc:mysql://<MySQL_DB_Host>:3306/<mysql_db_name> --username <mysql_username> -P --table <mysql_table_name> --hive-import --create-hive-table --hive-database '<hive_db_name>' --hive-table '<hive_table_name_to_be_created>' -m 1
-</code>
+</pre>
 
  
 ### Report Generator
