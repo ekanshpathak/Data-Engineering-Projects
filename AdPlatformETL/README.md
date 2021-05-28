@@ -39,9 +39,11 @@ So ultimately, the responsibility of the Ad Server is to serve Ads to the user. 
 
 **API Format:- **
 
-<code>**HTTP Method: GET **
+<code>
+ HTTP Method: GET
  http://localhost:5000/ad/user/6abc435e-0f72-11eb-8a4e-acde48001122/serve?device_type=android-mobile&city=mumbai&state=maharastra
 </code>
+
 
 **Sample API Response:-**
 
@@ -52,6 +54,7 @@ So ultimately, the responsibility of the Ad Server is to serve Ads to the user. 
          "request_id":"17001d26-0f72-11eb-8a4e-acde48001122"
 }
  </code>
+
 
 ### Feedback Handler
 The Feedback Handler is responsible for submitting user feedback. It will enrich the data before publishing it to the Kafka queue. We created a new Kafka topic for this purpose having **one partition** and a **replication factor of 1**.
@@ -67,6 +70,7 @@ Once an Ad has been displayed, information on whether the user has clicked on th
  http://localhost:8000/ad/17001d26-0f72-11eb-8a4e-acde48001122/feedback
 </code>
 
+
 **Sample Request Body:-**
 
 <code>
@@ -77,6 +81,7 @@ Once an Ad has been displayed, information on whether the user has clicked on th
  }
  </code>
 
+
 **Sample API Response:-**
 
 <code>
@@ -84,6 +89,7 @@ Once an Ad has been displayed, information on whether the user has clicked on th
     “status”:” SUCCESS”
  }
  </code>
+
 
 ### Slot Budget Manager
 The purpose of the Slot BudgetMmanager is to distribute the leftover budget uniformly on the Ad slots and utilise the budget fully. As it needs to be working repeatedly and adjusting the Budget in a timely manner, so we scheduled it as a **Cron job** running every 10 minutes and the Python MySQL connector is used to write the code.
@@ -94,6 +100,7 @@ The purpose of the Slot BudgetMmanager is to distribute the leftover budget unif
 */10 * * * * /path/to/file/slot_budget_manager.py <database_host> <database_name> <database_username> <database_password>
 </code>
 
+ 
 ### User Feedback Writer
 The User Feedback Writer will read the user feedback messages from the internal Kafka queue(created in Feedback Handler module) and write the feedback data to HDFS(Hadoop Distributed File System) for archiving and billing purposes. This will be a **PySpark** consumer job.
 
@@ -106,6 +113,7 @@ Data Archiver is responsible for exporting Ads data from MySQL to Hive, for repo
 sqoop import --connect jdbc:mysql://<MySQL_DB_Host>:3306/<mysql_db_name> --username <mysql_username> -P --table <mysql_table_name> --hive-import --create-hive-table --hive-database '<hive_db_name>' --hive-table '<hive_table_name_to_be_created>' -m 1
 </code>
 
+ 
 ### Report Generator
 HUE is used as a Report Generator, which is a User interface for the data stored in Hive.
 
