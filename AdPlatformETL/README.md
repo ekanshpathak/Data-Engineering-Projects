@@ -34,7 +34,7 @@ In the Ad Manager, we used **PyKafka** consumer for reading the data from **Kafk
 ### Ad Server
 The Ad Server is responsible for serving the ads to the users. When a user is active online, the client application will send a request to the Ad server along with the user details. The request from a typical mobile app client will contain a Google Play Store ID (GPID) or an Apple ID along with locality details. Upon receiving the request, the Ad server will execute the following events:
   - Find the list of available Ads which needs to be fetched by querying MySQL with user attributes.
-  - Hold an auction among candidate Ads using the [**‘Second-Price Auction’** strategy](https://www.inmobi.com/blog/2018/10/24/what-is-a-second-price-auction-and-how-does-it-work-video) and the winning Ad will be served to the user.
+  - Hold an auction among candidate Ads using the [‘Second-Price Auction’ strategy](https://www.inmobi.com/blog/2018/10/24/what-is-a-second-price-auction-and-how-does-it-work-video) and the winning Ad will be served to the user.
 So ultimately, the responsibility of the Ad Server is to serve Ads to the user. This will be done through an API call. We used the Flask library to create a web server and serve APIs in Python.
 
 **API Format:- **
@@ -64,12 +64,11 @@ Here, we used Flask for the APIs and MySQL connector library to connect to MySQL
 Once an Ad has been displayed, information on whether the user has clicked on the Ad, downloaded the advertised App or only viewed the Ad needs to be sent back to the Ad server through the user feedback API. The Feedback Handler will enrich the feedback data and publish it to the internal Kafka topic.
 
 **API Format:-**
-
 <code>
  HTTP Method: POST
  http://localhost:8000/ad/17001d26-0f72-11eb-8a4e-acde48001122/feedback
 </code>
-
+<br>
 
 **Sample Request Body:-**
 
@@ -80,7 +79,7 @@ Once an Ad has been displayed, information on whether the user has clicked on th
      “Acquisition”:0
  }
  </code>
-
+<br>
 
 **Sample API Response:-**
 
@@ -89,7 +88,7 @@ Once an Ad has been displayed, information on whether the user has clicked on th
     “status”:” SUCCESS”
  }
  </code>
-
+<br>
 
 ### Slot Budget Manager
 The purpose of the Slot BudgetMmanager is to distribute the leftover budget uniformly on the Ad slots and utilise the budget fully. As it needs to be working repeatedly and adjusting the Budget in a timely manner, so we scheduled it as a **Cron job** running every 10 minutes and the Python MySQL connector is used to write the code.
