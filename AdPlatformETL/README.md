@@ -37,16 +37,13 @@ The Ad Server is responsible for serving the ads to the users. When a user is ac
   - Hold an auction among candidate Ads using the [‘Second-Price Auction’ strategy](https://www.inmobi.com/blog/2018/10/24/what-is-a-second-price-auction-and-how-does-it-work-video) and the winning Ad will be served to the user.
 So ultimately, the responsibility of the Ad Server is to serve Ads to the user. This will be done through an API call. We used the Flask library to create a web server and serve APIs in Python.
 
-**API Format:-**
-
-<code>
+**API Format:**
+<pre>
  HTTP Method: GET <br>
  http://localhost:5000/ad/user/6abc435e-0f72-11eb-8a4e-acde48001122/serve?device_type=android-mobile&city=mumbai&state=maharastra
-</code>
-
+</pre>
 
 **Sample API Response:-**
-
 <code>
  {
          "text": "Jack Wolfskin Men's Rock Hunter Low Water
